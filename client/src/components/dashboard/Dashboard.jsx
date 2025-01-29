@@ -281,50 +281,64 @@ const Dashboard = () => {
         <div className="habits-list-container">
           <h2 className="habit-creation-title">Your Habits</h2>
           <div className="habits-list">
-            <ul>
-              {habits.map((habit, index) => (
-                <li key={index}>
-                  <h3 className="habit-creation-title">{habit.name}</h3>
-                  <p>{habit.description}</p>
-                  <p>Streak: {habit.streak} days</p>
-                  <p>Days Remaining: {calculateRemainingDays(habit.endDate)}</p>
-                  <div className="btn-container">
-                    <button
-                      className="del-btn"
-                      onClick={() => deleteHabit(habit)}
-                    >
-                      Delete <MdDelete />
-                    </button>
-                    {checkIfMarkable(habit.lastCompleted) && (
-                      <>
-                        <button
-                          className="comp-btn"
-                          onClick={() => markAsComplete(habit)}
-                        >
-                          Mark as Complete <MdOutlineDone />
-                        </button>
-                        {completedHabits[habit.name] && <p>Done for today!</p>}
-                      </>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {habits.length === 0 ? (
+              <p>No habit created, create one!</p>
+            ) : (
+              <ul>
+                {habits.map((habit, index) => (
+                  <li key={index}>
+                    <h3 className="habit-creation-title">{habit.name}</h3>
+                    <p>{habit.description}</p>
+                    <p>Streak: {habit.streak} days</p>
+                    <p>
+                      Days Remaining: {calculateRemainingDays(habit.endDate)}
+                    </p>
+                    <div className="btn-container">
+                      <button
+                        className="del-btn"
+                        onClick={() => deleteHabit(habit)}
+                      >
+                        Delete <MdDelete />
+                      </button>
+                      {checkIfMarkable(habit.lastCompleted) && (
+                        <>
+                          <button
+                            className="comp-btn"
+                            onClick={() => markAsComplete(habit)}
+                          >
+                            Mark as Complete <MdOutlineDone />
+                          </button>
+                          {completedHabits[habit.name] && (
+                            <p>Done for today!</p>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
 
       <div className="chart-section">
-        <h2>Habit Progress</h2>
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart data={chartData}>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="streak" fill="#8884d8" />
-            <Bar dataKey="remainingDays" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
+        {habits.length === 0 ? (
+          <p>No habit created, create one!</p>
+        ) : (
+          <>
+            <h2>Habit Progress</h2>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={chartData}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="streak" fill="#8884d8" />
+                <Bar dataKey="remainingDays" fill="#82ca9d" />
+              </BarChart>
+            </ResponsiveContainer>
+          </>
+        )}
       </div>
     </div>
   );
