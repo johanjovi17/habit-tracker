@@ -1,0 +1,223 @@
+/* Basic reset for padding and margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Header Styles */
+h2,
+h3 {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Button Styles */
+button {
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+button:hover {
+  background-color: #357ab7;
+  transform: translateY(-2px);
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+}
+
+.logout-button:hover {
+  background-color: #d63333;
+}
+
+/* Input Styles */
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.habit-tracker {
+  background-color: #f9fafc;
+  padding: 10px 0;
+  border: 2px solid cornflowerblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80vw;
+}
+.habit-creation {
+  background-color: none;
+  border: 2px solid cornflowerblue;
+  width: 40%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+.habit-creation-title {
+  color: cornflowerblue;
+}
+/* .habits-list-container {
+  background-color: aqua;
+} */
+.habits-list {
+  width: 600px;
+  margin: 0 auto;
+  max-height: 80vh;
+  overflow: scroll;
+  /* background-color: #d63333; */
+}
+.total-points {
+  background-color: #4a90e2;
+  color: white;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Habit List Styles */
+ul {
+  list-style-type: none;
+  padding: 0;
+  gap: 10%;
+  width: 100%;
+}
+
+li {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* background-color: purple; */
+  width: 100%;
+}
+
+li h3 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+li p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Form and Layout Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  /* background-color: green; */
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  margin-bottom: 20px;
+  /* background-color: purple; */
+}
+
+.logout-button {
+  flex-shrink: 0;
+}
+
+/* Chart Section */
+.chart-section {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.chart-section h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button,
+  input {
+    width: 90%;
+    max-width: none;
+  }
+}
+.gradient-text {
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right, blue, lightblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.animated-gradient-text {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #1e3a8a,
+    #2563eb,
+    /* Blue */ #60a5fa,
+    /* Light blue */ #3b82f6,
+    /* Vibrant blue */ #1e3a8a /* Deep blue again for looping */
+  );
+  background-size: 300% 300%; /* Makes the gradient larger for smooth animation */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 4s ease-in-out infinite; /* Define animation */
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 100% 50%; /* Middle position */
+  }
+  100% {
+    background-position: 0% 50%; /* End position */
+  }
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
